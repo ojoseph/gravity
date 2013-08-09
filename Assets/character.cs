@@ -62,28 +62,63 @@ public class character : MonoBehaviour {
 		
 		
 		
-		
+		//We check the ray up
 		if(Physics.Raycast(this.transform.position, rayTopDist, out theHitTop) == true){
 			//print("WE HIT SOMETHING "+ theHitTop.transform.gameObject.name);
-			print(theHitTop.transform.gameObject.tag);
+			//print(theHitTop.transform.gameObject.tag);
 			
 			if(theHitTop.transform.gameObject.tag == "blueTag"){
-				//rigidbody.AddForce (0,10,0);
-				//print("AAAAAA");
-				
-				
+			
 				if(thePolar == polarState.blue){
-					//print ("YELLOW");
+					print ("framboise");
+					rigidbody.AddForce (0,-20,0);
+				}else{
+					rigidbody.AddForce (0,20,0);
+					
+							
+					}
+
+				if(thePolar == polarState.red){
+					print ("chocolat");
 					rigidbody.AddForce (0,20,0);
 				}else{
 					rigidbody.AddForce (0,-20,0);
 					
 				}
-				
-				
-				
+
 			}
-		}
+			
+			
+			
+			
+			if(theHitTop.transform.gameObject.tag == "redTag"){
+			
+				if(thePolar == polarState.red){
+					print ("bleut");
+					rigidbody.AddForce (0,-20,0);
+				}else{
+					rigidbody.AddForce (0,20,0);
+					
+							
+					}
+
+				if(thePolar == polarState.blue){
+					print ("vanille");
+					rigidbody.AddForce (0,20,0);
+				}else{
+					rigidbody.AddForce (0,-20,0);
+					
+				}
+
+			}
+			
+			
+			
+			
+			
+			
+			
+		}//End Ray Top
 		
 		
 		
@@ -92,13 +127,10 @@ public class character : MonoBehaviour {
 		
 		
 		
-		
+		//We check the Ray below
 		if(Physics.Raycast(this.transform.position, rayBottomDist, out theHitBottom) == true){
 			//print("WE HIT SOMETHING "+ theHitBottom.transform.gameObject.name);
-			//rigidbody.AddForce (0,-10,0);
-			
-			
-			
+		
 			//We check if there is a redTag below, if so we react according to it
 			if(theHitBottom.transform.gameObject.tag == "redTag"){
 			
@@ -125,11 +157,7 @@ public class character : MonoBehaviour {
 
 			}
 			
-			
-			
-			
-			
-		}
+		}//End Bottom If
 		
 		
 		
