@@ -40,6 +40,8 @@ public class character : MonoBehaviour {
 	//We set up the bullets
 	public GameObject bullets;
 	
+	//Checks i f the gun is in cooldown
+	private bool gunCoolDown = false;
 	
 	//........................................................................................................................................................
 	
@@ -99,14 +101,46 @@ public class character : MonoBehaviour {
 		
 		//We check the Ray infront for the gun
 		if(Physics.Raycast(this.transform.position, rayFrontDist, out theHitFront) == true){
+			
+			
 			//We check if the objec infront of us is a rock, if so we pull out the gun 
 			if(theHitFront.transform.gameObject.tag == "toDestroy"){
+				print("foundTarget");
 				
-				//We start Shooting
+				//We shoot!
+				Invoke("shootBullet", 0.3f);
 			}
 		}
 		
 	}
+	
+	
+	void shootBullet(){
+		
+		
+		//Checks if the gun is in coolDown
+		if(gunCoolDown == true){
+			//We do nothing
+				
+		}else{
+		
+			//We start Shooting   [1.5f is the space where we instantiate the bullet.]
+			GameObject bulletInst = Instantiate(bullets, transform.position - new Vector3(-1.5f,0,0),Quaternion.identity) as GameObject;
+			
+			bulletInst.rigidbody.AddForce(600,0,0);
+			bulletInst.rigidbody.velocity = rigidbody.velocity;
+			
+			//Enters Cooldown
+			gunCoolDown = true;
+		}
+		
+		
+		//Enters Cooldown
+		gunCoolDown = false;
+		
+	}
+	
+	
 	
 	
 	////////////////////////////////////////
