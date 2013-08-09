@@ -9,15 +9,12 @@ public class character : MonoBehaviour {
 	public Ray theRayTop;
 	public Ray theRayBottom;
 	
-	
-	
+	//We theStates the polar can be.
 	public enum polarState{
 		neutral,
 		red,
 		blue
 	}
-	
-
 	
 	//We create a polar state for the charater
 	public polarState thePolar;
@@ -30,27 +27,42 @@ public class character : MonoBehaviour {
 	string refRedMat = "materials/pulseRed";
 	
 	//We set up the strenght of the 
-	public float polStrg = 20.0f;
+	public float polStrg = 10.0f;
 	
-	// Use this for initialization
+	
+	
+	
+	
+	//........................................................................................................................................................
+	
+	
+	
+	
+	
+	
+	
+	////////////////////////////////////////
+	//	Start
 	void Start () {
 		thePolar = polarState.blue;
-
 	}
 	
-	// Update is called once per frame
+	////////////////////////////////////////
+	//	Update
 	void Update () {
 		
+		//Controls
 		if (Input.GetKey (KeyCode.RightArrow)){
-			//Vector3 theMov = new Vector3(10,0,0);
-			this.transform.Translate(2f * Time.deltaTime,0,0,Space.Self) ;
+			this.transform.Translate(3f * Time.deltaTime,0,0,Space.Self);
 		}
 		
 		if (Input.GetKey (KeyCode.LeftArrow)){
-			//Vector3 theMov = new Vector3(10,0,0);
-			this.transform.Translate(-2f * Time.deltaTime,0,0,Space.Self) ;
+			this.transform.Translate(-3f * Time.deltaTime,0,0,Space.Self);
 		}
 		
+		
+		
+		//........................................................................................................................................................
 		
 		
 		
@@ -66,29 +78,40 @@ public class character : MonoBehaviour {
 		
 		//We check the ray up
 		if(Physics.Raycast(this.transform.position, rayTopDist, out theHitTop) == true){
-			
-			applyPolarization(theHitTop, polStrg);
-			
-		}//End Ray Top
+			applyPolarization(theHitTop, polStrg,true);
+		}
 		
 	
 		//We check the Ray below
 		if(Physics.Raycast(this.transform.position, rayBottomDist, out theHitBottom) == true){
-			
-			applyPolarization(theHitBottom,polStrg);
-			
-		}//End Bottom If
+			applyPolarization(theHitBottom,polStrg,false);
+		}
 		
 	}
 	
 	
-	
-	void applyPolarization(RaycastHit targRay, float thePolStrg){
-		print("calling the fct");	
-	
+	////////////////////////////////////////
+	//	We Apply the Polarization
+	void applyPolarization(RaycastHit targRay, float thePolStrg, bool reverse){
+		
+		//We do some corrections so that it works with both raycast
+		if(reverse == true){
+			thePolStrg = thePolStrg;
+		}else{
+			thePolStrg = -thePolStrg;
+		}
+		
+		//print("calling the fct");	
+		print(targRay.transform.gameObject.tag);
+		
+		
+		
 		//We check if the ray hit with a blue or red tag
 		switch(targRay.transform.gameObject.tag){
 			
+			
+			
+			//Might put a thirdStatus, neutral
 			case"blueTag":
 				
 				if(thePolar == polarState.blue){
