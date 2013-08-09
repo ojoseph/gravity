@@ -16,6 +16,12 @@ public class character : MonoBehaviour {
 		blue
 	}
 	
+	//left us know from where we are dectecting
+	enum direction{
+		top,
+		bottom	
+	}
+	
 	//We create a polar state for the charater
 	public polarState thePolar;
 	
@@ -78,13 +84,13 @@ public class character : MonoBehaviour {
 		
 		//We check the ray up
 		if(Physics.Raycast(this.transform.position, rayTopDist, out theHitTop) == true){
-			applyPolarization(theHitTop, polStrg,true);
+			applyPolarization(theHitTop, polStrg,direction.top);
 		}
 		
 	
 		//We check the Ray below
 		if(Physics.Raycast(this.transform.position, rayBottomDist, out theHitBottom) == true){
-			applyPolarization(theHitBottom,polStrg,false);
+			applyPolarization(theHitBottom,polStrg,direction.bottom);
 		}
 		
 	}
@@ -92,15 +98,18 @@ public class character : MonoBehaviour {
 	
 	////////////////////////////////////////
 	//	We Apply the Polarization
-	void applyPolarization(RaycastHit targRay, float thePolStrg, bool reverse){
+	void applyPolarization(RaycastHit targRay, float thePolStrg, direction theDir){
 		
 		//We do some corrections so that it works with both raycast
-		if(reverse == true){
+		if(theDir == direction.top){
 			thePolStrg = thePolStrg;
-		}else{
+		}
+		
+		if(theDir == direction.bottom){
 			thePolStrg = -thePolStrg;
 		}
 		
+
 		//print("calling the fct");	
 		print(targRay.transform.gameObject.tag);
 		
