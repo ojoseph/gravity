@@ -199,6 +199,7 @@ public class character : MonoBehaviour {
 	//	On Collision
 	void OnCollisionEnter( Collision theCollision){
 		
+		//We connect to the GameManger
 		GameObject theGameManagerObj = GameObject.Find("_gameManager");
 		
 		switch(theCollision.gameObject.tag){
