@@ -1,11 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/cameraMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/bulletScript.cs">
     <Files>
-      <File FileName="../../../CSharp/dictionary/Dictionary/Main.cs" Line="17" Column="23" />
-      <File FileName="../../../CSharp/pokemonBattleSimulator/pokemonBattleSimulator/Main.cs" Line="198" Column="4" />
-      <File FileName="Assets/scripts/cameraMovement.cs" Line="13" Column="31" />
-      <File FileName="Assets/scripts/character.cs" Line="62" Column="65" />
+      <File FileName="Assets/scripts/bulletScript.cs" Line="11" Column="17" />
+      <File FileName="Assets/scripts/character.cs" Line="136" Column="35" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,7 +11,7 @@
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="scripts" expanded="True">
-                <Node name="cameraMovement.cs" selected="True" />
+                <Node name="bulletScript.cs" selected="True" />
               </Node>
             </Node>
           </Node>

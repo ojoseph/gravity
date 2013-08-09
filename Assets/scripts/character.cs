@@ -43,6 +43,8 @@ public class character : MonoBehaviour {
 	//Checks i f the gun is in cooldown
 	private bool gunCoolDown = false;
 	
+	//restricts to on bullet
+	private bool shotBullet = false; 
 	//........................................................................................................................................................
 	
 	
@@ -105,10 +107,13 @@ public class character : MonoBehaviour {
 			
 			//We check if the objec infront of us is a rock, if so we pull out the gun 
 			if(theHitFront.transform.gameObject.tag == "toDestroy"){
-				print("foundTarget");
-				
-				//We shoot!
-				Invoke("shootBullet", 0.3f);
+//				print("foundTarget");
+				if( shotBullet == false){
+					//We shoot!
+					Invoke("shootBullet", 0.3f);
+					//We shot our bullet
+					shotBullet = true;
+				}	
 			}
 		}
 		
@@ -125,13 +130,16 @@ public class character : MonoBehaviour {
 		}else{
 		
 			//We start Shooting   [1.5f is the space where we instantiate the bullet.]
+			//for(int u = 0; u< 3; u++){
 			GameObject bulletInst = Instantiate(bullets, transform.position - new Vector3(-1.5f,0,0),Quaternion.identity) as GameObject;
 			
-			bulletInst.rigidbody.AddForce(600,0,0);
+			bulletInst.rigidbody.AddForce(700,0,0);
 			bulletInst.rigidbody.velocity = rigidbody.velocity;
-			
+			//}
 			//Enters Cooldown
-			gunCoolDown = true;
+			//gunCoolDown = true;
+			//We shot our bullet
+					shotBullet = false;
 		}
 		
 		
