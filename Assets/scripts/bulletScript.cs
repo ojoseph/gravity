@@ -22,7 +22,7 @@ public class bulletScript : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter( Collision theCollision){
-		Invoke("selfDestroy", 0.05f);
+		Invoke("selfDestroy", 0.06f);
 		
 	}
 	
