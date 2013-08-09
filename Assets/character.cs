@@ -67,7 +67,7 @@ public class character : MonoBehaviour {
 		//We check the ray up
 		if(Physics.Raycast(this.transform.position, rayTopDist, out theHitTop) == true){
 			
-			checkPolarization(theHitTop, polStrg);
+			applyPolarization(theHitTop, polStrg);
 			
 		}//End Ray Top
 		
@@ -75,7 +75,7 @@ public class character : MonoBehaviour {
 		//We check the Ray below
 		if(Physics.Raycast(this.transform.position, rayBottomDist, out theHitBottom) == true){
 			
-			checkPolarization(theHitBottom,polStrg);
+			applyPolarization(theHitBottom,polStrg);
 			
 		}//End Bottom If
 		
@@ -83,7 +83,7 @@ public class character : MonoBehaviour {
 	
 	
 	
-	void checkPolarization(RaycastHit targRay, float thePolStrg){
+	void applyPolarization(RaycastHit targRay, float thePolStrg){
 		print("calling the fct");	
 	
 		//We check if the ray hit with a blue or red tag
@@ -98,13 +98,6 @@ public class character : MonoBehaviour {
 					rigidbody.AddForce (0,thePolStrg,0);
 				}
 
-				if(thePolar == polarState.red){
-					//print ("chocolat");
-					rigidbody.AddForce (0,thePolStrg,0);
-				}else{
-					rigidbody.AddForce (0,-thePolStrg,0);
-				}
-			
 			break;
 			
 			case"redTag":
@@ -115,14 +108,6 @@ public class character : MonoBehaviour {
 					rigidbody.AddForce (0,thePolStrg,0);	
 				}
 
-				if(thePolar == polarState.blue){
-					//We push it away
-					rigidbody.AddForce (0,thePolStrg,0);
-				}else{
-					//We bring it closer 
-					rigidbody.AddForce (0,-20,0);
-				}
-			
 			break;
 		}
 		
