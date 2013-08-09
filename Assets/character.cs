@@ -29,6 +29,8 @@ public class character : MonoBehaviour {
 	string refBlueMat = "materials/pulseBlue";
 	string refRedMat = "materials/pulseRed";
 	
+	//We set up the strenght of the 
+	public float polStrg = 20.0f;
 	
 	// Use this for initialization
 	void Start () {
@@ -64,96 +66,16 @@ public class character : MonoBehaviour {
 		
 		//We check the ray up
 		if(Physics.Raycast(this.transform.position, rayTopDist, out theHitTop) == true){
-			//print("WE HIT SOMETHING "+ theHitTop.transform.gameObject.name);
-			//print(theHitTop.transform.gameObject.tag);
 			
-			
-			checkPolarization(theHitTop);
-			/*
-			if(theHitTop.transform.gameObject.tag == "blueTag"){
-			
-				if(thePolar == polarState.blue){
-					print ("framboise");
-					rigidbody.AddForce (0,-20,0);
-				}else{
-					rigidbody.AddForce (0,20,0);
-					
-							
-					}
-
-				if(thePolar == polarState.red){
-					print ("chocolat");
-					rigidbody.AddForce (0,20,0);
-				}else{
-					rigidbody.AddForce (0,-20,0);
-					
-				}
-
-			}
-			
-			
-			
-			
-			if(theHitTop.transform.gameObject.tag == "redTag"){
-			
-				if(thePolar == polarState.red){
-					print ("bleut");
-					rigidbody.AddForce (0,-20,0);
-				}else{
-					rigidbody.AddForce (0,20,0);
-					
-							
-					}
-
-				if(thePolar == polarState.blue){
-					//We push it away
-					rigidbody.AddForce (0,20,0);
-				}else{
-					//We bring it closer 
-					rigidbody.AddForce (0,-20,0);
-					
-				}
-
-			}*/
+			checkPolarization(theHitTop, polStrg);
 			
 		}//End Ray Top
 		
-		
-		
-		
-		
-		
-		
-		
+	
 		//We check the Ray below
 		if(Physics.Raycast(this.transform.position, rayBottomDist, out theHitBottom) == true){
-			//print("WE HIT SOMETHING "+ theHitBottom.transform.gameObject.name);
-		
-			//We check if there is a redTag below, if so we react according to it
-			if(theHitBottom.transform.gameObject.tag == "redTag"){
 			
-				if(thePolar == polarState.red){
-					//We push it away
-					rigidbody.AddForce (0,20,0);
-				}else{
-					//We bring it closer 
-					rigidbody.AddForce (0,-20,0);
-				}
-			}
-			
-			
-			//We check if there is a blueTag below, if so we react according to it
-			if(theHitBottom.transform.gameObject.tag == "blueTag"){
-				
-				if(thePolar == polarState.blue){
-					//We push it away
-					rigidbody.AddForce (0,20,0);
-				}else{
-					//We bring it closer 
-					rigidbody.AddForce (0,-20,0);
-				}
-
-			}
+			checkPolarization(theHitBottom,polStrg);
 			
 		}//End Bottom If
 		
@@ -161,8 +83,8 @@ public class character : MonoBehaviour {
 	
 	
 	
-	void checkPolarization(RaycastHit targRay){
-		
+	void checkPolarization(RaycastHit targRay, float thePolStrg){
+		print("calling the fct");	
 	
 		//We check if the ray hit with a blue or red tag
 		switch(targRay.transform.gameObject.tag){
@@ -170,17 +92,17 @@ public class character : MonoBehaviour {
 			case"blueTag":
 				
 				if(thePolar == polarState.blue){
-					print ("framboise");
-					rigidbody.AddForce (0,-20,0);
+					//print ("framboise");
+					rigidbody.AddForce (0,-thePolStrg,0);
 				}else{
-					rigidbody.AddForce (0,20,0);
+					rigidbody.AddForce (0,thePolStrg,0);
 				}
 
 				if(thePolar == polarState.red){
-					print ("chocolat");
-					rigidbody.AddForce (0,20,0);
+					//print ("chocolat");
+					rigidbody.AddForce (0,thePolStrg,0);
 				}else{
-					rigidbody.AddForce (0,-20,0);
+					rigidbody.AddForce (0,-thePolStrg,0);
 				}
 			
 			break;
@@ -188,21 +110,17 @@ public class character : MonoBehaviour {
 			case"redTag":
 				
 				if(thePolar == polarState.red){
-					print ("bleut");
-					rigidbody.AddForce (0,-20,0);
+					rigidbody.AddForce (0,-thePolStrg,0);
 				}else{
-					rigidbody.AddForce (0,20,0);
-					
-							
-					}
+					rigidbody.AddForce (0,thePolStrg,0);	
+				}
 
 				if(thePolar == polarState.blue){
 					//We push it away
-					rigidbody.AddForce (0,20,0);
+					rigidbody.AddForce (0,thePolStrg,0);
 				}else{
 					//We bring it closer 
 					rigidbody.AddForce (0,-20,0);
-					
 				}
 			
 			break;
