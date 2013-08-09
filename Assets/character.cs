@@ -67,6 +67,9 @@ public class character : MonoBehaviour {
 			//print("WE HIT SOMETHING "+ theHitTop.transform.gameObject.name);
 			//print(theHitTop.transform.gameObject.tag);
 			
+			
+			checkPolarization(theHitTop);
+			/*
 			if(theHitTop.transform.gameObject.tag == "blueTag"){
 			
 				if(thePolar == polarState.blue){
@@ -103,20 +106,15 @@ public class character : MonoBehaviour {
 					}
 
 				if(thePolar == polarState.blue){
-					print ("vanille");
+					//We push it away
 					rigidbody.AddForce (0,20,0);
 				}else{
+					//We bring it closer 
 					rigidbody.AddForce (0,-20,0);
 					
 				}
 
-			}
-			
-			
-			
-			
-			
-			
+			}*/
 			
 		}//End Ray Top
 		
@@ -159,22 +157,56 @@ public class character : MonoBehaviour {
 			
 		}//End Bottom If
 		
+	}
+	
+	
+	
+	void checkPolarization(RaycastHit targRay){
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
+		//We check if the ray hit with a blue or red tag
+		switch(targRay.transform.gameObject.tag){
+			
+			case"blueTag":
+				
+				if(thePolar == polarState.blue){
+					print ("framboise");
+					rigidbody.AddForce (0,-20,0);
+				}else{
+					rigidbody.AddForce (0,20,0);
+				}
+
+				if(thePolar == polarState.red){
+					print ("chocolat");
+					rigidbody.AddForce (0,20,0);
+				}else{
+					rigidbody.AddForce (0,-20,0);
+				}
+			
+			break;
+			
+			case"redTag":
+				
+				if(thePolar == polarState.red){
+					print ("bleut");
+					rigidbody.AddForce (0,-20,0);
+				}else{
+					rigidbody.AddForce (0,20,0);
+					
+							
+					}
+
+				if(thePolar == polarState.blue){
+					//We push it away
+					rigidbody.AddForce (0,20,0);
+				}else{
+					//We bring it closer 
+					rigidbody.AddForce (0,-20,0);
+					
+				}
+			
+			break;
+		}
 		
 	}
 	
