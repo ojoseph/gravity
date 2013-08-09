@@ -198,14 +198,19 @@ public class character : MonoBehaviour {
 	////////////////////////////////////////
 	//	On Collision
 	void OnCollisionEnter( Collision theCollision){
-		/*if(theCollision.gameObject.name == "theCeiling"){
-			print ("Collision: " + theCollision.gameObject.name);
-		}*/ 
-		switch(theCollision.gameObject.name){
+		
+		GameObject theGameManagerObj = GameObject.Find("_gameManager");
+		
+		switch(theCollision.gameObject.tag){
 			case "death":
 				print("YOU DIED!");
 				this.renderer.material.color = Color.red;
-				StartCoroutine("loadGameOver");
+				theGameManagerObj.GetComponent<gameManager>().theCurrGameState = gameManager.gameState.gameOver;
+			break;
+			case "toDestroy":
+				print("YOU DEAD!!!!");
+				this.renderer.material.color = Color.red;
+				theGameManagerObj.GetComponent<gameManager>().theCurrGameState = gameManager.gameState.gameOver;
 			break;
 		}
 		
@@ -213,12 +218,11 @@ public class character : MonoBehaviour {
 		
 	}
 	
+	////////////////////////////////////////
+	//	LoadGame OVer
 	IEnumerator loadGameOver(){
-		
-		yield return new WaitForSeconds(1);
-		
+		yield return new WaitForSeconds(0.5f);
 		Application.LoadLevel("gameOver");	
-		
 	}
 	
 	

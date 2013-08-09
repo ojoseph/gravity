@@ -1,9 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/bulletScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/character.cs">
     <Files>
-      <File FileName="Assets/scripts/bulletScript.cs" Line="11" Column="17" />
-      <File FileName="Assets/scripts/character.cs" Line="136" Column="35" />
+      <File FileName="Assets/scripts/bulletScript.cs" Line="25" Column="29" />
+      <File FileName="Assets/scripts/character.cs" Line="219" Column="3" />
+      <File FileName="Assets/scripts/rockHP.cs" Line="16" Column="4" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,7 +12,7 @@
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="scripts" expanded="True">
-                <Node name="bulletScript.cs" selected="True" />
+                <Node name="character.cs" selected="True" />
               </Node>
             </Node>
           </Node>

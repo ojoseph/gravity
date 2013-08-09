@@ -47,6 +47,7 @@
      <Compile Include="Assets\scripts\bulletScript.cs" />
      <Compile Include="Assets\scripts\cameraMovement.cs" />
      <Compile Include="Assets\scripts\character.cs" />
+     <Compile Include="Assets\scripts\gameManager.cs" />
      <Compile Include="Assets\scripts\gravity.cs" />
      <Compile Include="Assets\scripts\playAgain.cs" />
      <Compile Include="Assets\scripts\rockHP.cs" />
