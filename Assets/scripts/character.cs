@@ -47,10 +47,8 @@ public class character : MonoBehaviour {
 	private bool shotBullet = false; 
 	//........................................................................................................................................................
 	
-	
-	
-	
-	
+	public Vector3 dir;
+	 public float speed = 20.0F;
 	
 	
 	////////////////////////////////////////
@@ -71,6 +69,39 @@ public class character : MonoBehaviour {
 		if (Input.GetKey (KeyCode.LeftArrow)){
 			this.transform.Translate(-3f * Time.deltaTime,0,0,Space.Self);
 		}
+		
+		//........................................................................................................................................................
+		
+		//Controls SmartPhone
+		dir = Vector3.zero;
+		dir.x = Input.acceleration.x;
+
+        if (dir.sqrMagnitude > 1)
+            dir.Normalize();
+        
+        dir *= Time.deltaTime;
+		
+        transform.Translate(dir * speed);
+		  int fingerCount = 0;
+	      foreach (Touch touch in Input.touches) {
+	            if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled)
+	                fingerCount++;
+				  if (touch.phase == TouchPhase.Ended ){
+						print("SOMTHING HAPPENED");
+						switchOnFinger();
+					}
+	            
+	        }
+       /* if (fingerCount > 0)
+            print("User has " + fingerCount + " finger(s) touching the screen");*/
+        
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -130,12 +161,12 @@ public class character : MonoBehaviour {
 		}else{
 		
 			//We start Shooting   [1.5f is the space where we instantiate the bullet.]
-			//for(int u = 0; u< 3; u++){
+			for(int u = 0; u< 3; u++){
 			GameObject bulletInst = Instantiate(bullets, transform.position - new Vector3(-1.5f,0,0),Quaternion.identity) as GameObject;
 			
 			bulletInst.rigidbody.AddForce(700,0,0);
 			bulletInst.rigidbody.velocity = rigidbody.velocity;
-			//}
+			}
 			//Enters Cooldown
 			//gunCoolDown = true;
 			//We shot our bullet
@@ -229,7 +260,8 @@ public class character : MonoBehaviour {
 	
 	////////////////////////////////////////
 	//	On click
-	void OnMouseDown(){
+	//void OnMouseDown(){
+	void switchOnFinger(){
 		
 		
 		//We change the polarity

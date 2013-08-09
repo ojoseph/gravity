@@ -44,7 +44,7 @@ public class gameManager : MonoBehaviour {
 	
 	
 	IEnumerator loadGameOver(){
-		print("FROM COROUTINE");
+//		print("FROM COROUTINE");
 		yield return new WaitForSeconds(0.5f);
 		Application.LoadLevel("gameOver");
 		theCurrGameState = gameState.none;

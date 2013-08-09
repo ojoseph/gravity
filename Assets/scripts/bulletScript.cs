@@ -22,7 +22,24 @@ public class bulletScript : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter( Collision theCollision){
-		Invoke("selfDestroy", 0.06f);
+		
+		
+		if(theCollision.transform.tag == "toDestroy"  || theCollision.transform.tag == "death"  || theCollision.transform.tag == "blueTag" || theCollision.transform.tag == "redTag" ){
+			Invoke("selfDestroy", 0.06f);
+		}
+		
+		
+		/*switch(theCollision.transform.tag){
+			case "toDestroy":
+				Invoke("selfDestroy", 0.06f);
+			break;
+			case "death":
+				Invoke("selfDestroy", 0.06f);
+			break;
+			case "blu":
+				Invoke("selfDestroy", 0.06f);
+			break;
+		}*/
 		
 	}
 	
