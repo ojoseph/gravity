@@ -8,8 +8,4 @@ public class thefloors : MonoBehaviour {
 		this.collider.material.dynamicFriction = 0;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

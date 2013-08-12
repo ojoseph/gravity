@@ -70,6 +70,11 @@ public class character : MonoBehaviour {
 			this.transform.Translate(-3f * Time.deltaTime,0,0,Space.Self);
 		}
 		
+		//Allows the polarization to be switch upon mouse down.
+		/*if (Input.GetButtonDown("Fire1") && Camera.main.pixelRect.Contains(Input.mousePosition)){
+			switchOnFinger();
+		}*/
+    	
 		//........................................................................................................................................................
 		
 		//Controls SmartPhone
@@ -87,22 +92,14 @@ public class character : MonoBehaviour {
 	            if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled)
 	                fingerCount++;
 				  if (touch.phase == TouchPhase.Ended ){
-						print("SOMTHING HAPPENED");
+						//print("SOMTHING HAPPENED");
 						switchOnFinger();
 					}
 	            
 	        }
-       /* if (fingerCount > 0)
-            print("User has " + fingerCount + " finger(s) touching the screen");*/
+      
         
-		
-		
-		
-		
-		
-		
-		
-		
+
 		
 		
 		//........................................................................................................................................................

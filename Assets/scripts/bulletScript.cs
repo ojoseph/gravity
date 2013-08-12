@@ -34,15 +34,7 @@ public class bulletScript : MonoBehaviour {
 				break;
 			} 
 		}
-		
-		
-		
-		
+
 	}
 	
-	
-	// Update is called once per frame
-	void Update () {
-		//currLifeSpan = Time.deltaTime*1;
-	}
 }

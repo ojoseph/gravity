@@ -28,7 +28,7 @@ public class gameManager : MonoBehaviour {
 			break;
 			
 			case gameState.gameOver:
-					//loadGameOverGameManager();
+				//loadGameOverGameManager();
 				StartCoroutine("loadGameOver");
 			break;
 		}
@@ -37,10 +37,10 @@ public class gameManager : MonoBehaviour {
 	
 	////////////////////////////////////////
 	//	LoadGame Over
-	public void loadGameOverGameManager(){
+	/*public void loadGameOverGameManager(){
 		//yield return new WaitForSeconds(0.5f);
 		Application.LoadLevel("gameOver");	
-	}
+	}*/
 	
 	
 	IEnumerator loadGameOver(){

@@ -5,7 +5,7 @@ public class testGyro : MonoBehaviour {
 	
 	
 	
-	 public float speed = 10.0F;
+	public float speed = 10.0F;
 	public Vector3 forceVec;
 	
 	public Vector3 someOutputValue;

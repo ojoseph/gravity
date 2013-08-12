@@ -54,7 +54,6 @@
      <Compile Include="Assets\scripts\rockHP.cs" />
      <Compile Include="Assets\scripts\testGyro.cs" />
      <Compile Include="Assets\scripts\thefloors.cs" />
-     <Compile Include="Assets\scripts\worldGravity.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

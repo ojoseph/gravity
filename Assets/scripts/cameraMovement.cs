@@ -7,6 +7,6 @@ public class cameraMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		this.transform.Translate(0.2f * Time.deltaTime,0,0,Space.Self);
+		this.transform.Translate(camSpeed * Time.deltaTime,0,0,Space.Self);
 	}
 }
