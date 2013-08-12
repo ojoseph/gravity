@@ -3,10 +3,7 @@ using System.Collections;
 
 public class cameraMovement : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+	public float camSpeed = 0.2f;
 	
 	// Update is called once per frame
 	void Update () {

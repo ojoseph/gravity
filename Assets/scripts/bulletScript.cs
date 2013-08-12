@@ -7,6 +7,9 @@ public class bulletScript : MonoBehaviour {
 	public float currLifeSpan;
 	public ParticleSystem explodePart;
 	
+	//List of items that will put the game over
+	string[] deathCollision = {"toDestroy", "death", "blueTag", "redTag"};
+	
 	// Use this for initialization
 	void Start () {
 		explodePart.enableEmission = true;
@@ -23,23 +26,17 @@ public class bulletScript : MonoBehaviour {
 	
 	void OnCollisionEnter( Collision theCollision){
 		
-		
-		if(theCollision.transform.tag == "toDestroy"  || theCollision.transform.tag == "death"  || theCollision.transform.tag == "blueTag" || theCollision.transform.tag == "redTag" ){
-			Invoke("selfDestroy", 0.06f);
+		//We  check if the bullet hits with a object that will put him game over
+		foreach ( string item in deathCollision){
+			//If we get a match we end the game and break out the loop
+			if(theCollision.transform.tag == item){
+				Invoke("selfDestroy", 0.06f);
+				break;
+			} 
 		}
 		
 		
-		/*switch(theCollision.transform.tag){
-			case "toDestroy":
-				Invoke("selfDestroy", 0.06f);
-			break;
-			case "death":
-				Invoke("selfDestroy", 0.06f);
-			break;
-			case "blu":
-				Invoke("selfDestroy", 0.06f);
-			break;
-		}*/
+		
 		
 	}
 	

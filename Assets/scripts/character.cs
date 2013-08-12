@@ -161,12 +161,12 @@ public class character : MonoBehaviour {
 		}else{
 		
 			//We start Shooting   [1.5f is the space where we instantiate the bullet.]
-			for(int u = 0; u< 3; u++){
+			//for(int u = 0; u< 3; u++){
 			GameObject bulletInst = Instantiate(bullets, transform.position - new Vector3(-1.5f,0,0),Quaternion.identity) as GameObject;
 			
-			bulletInst.rigidbody.AddForce(700,0,0);
+			bulletInst.rigidbody.AddForce(800,0,0);
 			bulletInst.rigidbody.velocity = rigidbody.velocity;
-			}
+			//}
 			//Enters Cooldown
 			//gunCoolDown = true;
 			//We shot our bullet
